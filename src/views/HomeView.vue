@@ -59,16 +59,21 @@ onMounted(async ()=>{
         人员介绍
       </h1>
       <el-skeleton style="width: 240px" :loading="loading" animated>
-        <div>
-          <el-row>
-            <el-col v-for="item in memberList" :key="item.name">
-              <el-card v-for="item in memberList" :key="item.name">
+        <div  v-for="item in memberList" :key="item.department" >
+          <h1 style="text-align: center">
+            {{item.department}}
+          </h1>
+          <el-row justify="center" gutter="30">
+            <el-col span="6"  v-for="item in item.members" :key="item.name" style="margin-bottom: 20px">
+              <el-card>
+                <img :src="item.avatar" alt="avatar" style="width: 100%">
                 <h1>
                   {{item.name}}
                 </h1>
               </el-card>
             </el-col>
           </el-row>
+          <hr />
         </div>
       </el-skeleton>
     </div>
