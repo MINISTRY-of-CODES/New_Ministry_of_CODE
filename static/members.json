@@ -10,56 +10,66 @@
     ]
   },
   {
+    "department": "Management Department",
+    "members": [
+      {
+        "name": "Seow Yuxiang",
+        "role": "Management Department Leader",
+        "avatar": "https://s1.ax1x.com/2023/08/15/pPQuDLn.png"
+      }
+    ]
+  },
+  {
     "department": "Development Department",
     "members": [
       {
         "name": "Li Haoyuan",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/12/6b9fd4ba493f2978061c35bf1d141582.png"
       },
       {
         "name": "Liu Yunhao",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/12/6fa1283f567cf241aeebe355eca985a7.jpeg"
       },
       {
         "name": "Wan Jiuyang",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/12/08c46b2b2e7074491c011dc1f3bcd428.jpeg"
       },
       {
         "name": "He Yangfan",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQuyd0.png"
       },
       {
         "name": "Jiang Yecen",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQu0Mj.png"
       },
       {
         "name": "Men Zhaolin",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQuaRg.png"
       },
       {
         "name": "Long Ying",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQudzQ.png"
       },
       {
         "name": "Cheng Huiyang",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/05/10/p9rnpYF.jpg"
       },
       {
         "name": "Liang Zimao",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/05/10/p9rnkO1.jpg"
       },
       {
         "name": "Qi Yujun",
-        "role": "Development",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/05/14/p9cr1b9.jpg"
       }
     ]
@@ -71,16 +81,6 @@
         "name": "Long Ying",
         "role": "Design Department Leader",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQudzQ.png"
-      }
-    ]
-  },
-  {
-    "department": "Management Department",
-    "members": [
-      {
-        "name": "Seow Yuxiang",
-        "role": "Management Department Leader",
-        "avatar": "https://s1.ax1x.com/2023/08/15/pPQuDLn.png"
       }
     ]
   },

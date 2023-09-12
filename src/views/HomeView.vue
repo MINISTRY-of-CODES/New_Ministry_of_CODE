@@ -15,10 +15,7 @@ onMounted(async ()=>{
   const data = await fetch(url).then(res => res.json());
   memberList.value = data;
   loading.value = false;
-  console.log(data);
 })
-
-
 </script>
 
 <template>
@@ -64,12 +61,15 @@ onMounted(async ()=>{
             {{item.department}}
           </h1>
           <el-row justify="center" gutter="30">
-            <el-col span="6"  v-for="item in item.members" :key="item.name" style="margin-bottom: 20px">
-              <el-card>
-                <img :src="item.avatar" alt="avatar" style="width: 150px; height: 150px; object-fit:cover">
-                <h1>
+            <el-col :xs="12" :span="6"  v-for="item in item.members" :key="item.name" style="margin-bottom: 20px">
+              <el-card style="text-align: center">
+                <img :src="item.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:cover">
+                <h2 style="margin-bottom: 10px">
                   {{item.name}}
-                </h1>
+                </h2>
+                <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
+                  {{ item.role }}
+                </p>
               </el-card>
             </el-col>
           </el-row>
