@@ -5,7 +5,7 @@ import HomeView from "@/views/HomeView.vue";
 import ProjectView from "@/views/ProjectView.vue";
 import JoinView from "@/views/JoinView.vue";
 
-const activeIndex = ref('1')
+const activeIndex = ref('intro')
 const handleSelect = (key: string, keyPath: string[]) => {
   activeIndex.value = key
 }
