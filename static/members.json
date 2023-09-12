@@ -2,7 +2,7 @@
   {
     "name": "Li Jiake",
     "role": "President",
-    "avatar":
+    "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/Li_Jiake.png"
   },
   {
     "name": "Li Haoyuan",
@@ -14,5 +14,9 @@
   {
     "name": "Wan Jiuyang",
     "role": "Development"
-  }
+  },{
+  "name": "He Yangfan",
+    "role": "Development",
+    "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/He_Yangfan.png"
+    }
 ]
