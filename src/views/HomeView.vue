@@ -19,8 +19,8 @@ onMounted(async ()=>{
 </script>
 
 <template>
-  <div style="margin: 20px;margin-bottom: 100px">
-    <div id="logo" style="text-align: center; margin-top: 100px">
+  <div style="margin: 20px;margin-bottom: 90px">
+    <div id="logo" style="text-align: center; margin-top: 60px">
       <el-image src="https://www.mocd.cc/assets/MOC-6f7f2da6.png" style="max-width: 400px;max-height: 400px;" alt="logo">
       </el-image>
     </div>
@@ -30,11 +30,27 @@ onMounted(async ()=>{
         font-weight: 900;
         text-align: center;
         margin-top: 10px;
+        margin-bottom: 15px;
+        background-image: linear-gradient(to right, #ff9a00, #ff4e00);
+        -webkit-background-clip: text;
+        color: transparent;
 ">
         Ministry of CODE
       </p>
-    </div>
-
+      <p style="
+        font-size: 30px;
+        font-weight: 900;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+        opacity: 0.7;
+">
+       Coding Club | Xiamen University Malaysia
+      </p>
+      <div style="text-align: center">
+        <img src="https://ribo.mocd.fun/static/xmum.4acf0db1.png" alt="xiamen" style="width: 100%;max-width: 300px;max-height: 300px;object-fit: cover;">
+      </div>
+</div>
     <el-divider />
     <div id="intro">
       <h1 style="text-align: center; margin-bottom: 40px;margin-top: 30px">社团介绍</h1>
@@ -51,9 +67,15 @@ onMounted(async ()=>{
       </el-card>
     </div>
     <el-divider />
+    <div id="projects">
+    <h1 style="text-align: center">
+      项目
+    </h1>
+    </div>
+    <el-divider />
     <div id="members">
-      <h1>
-        人员介绍
+      <h1 style="text-align: center">
+        伙伴
       </h1>
       <el-skeleton style="width: 240px" :loading="loading" animated>
         <div  v-for="item in memberList" :key="item.department" >
