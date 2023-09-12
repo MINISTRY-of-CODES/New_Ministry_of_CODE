@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+
+console.log('HomeView')
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <el-button type="primary">Primary</el-button>
   </main>
 </template>
