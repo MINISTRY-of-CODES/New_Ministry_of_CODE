@@ -14,14 +14,17 @@
     "members": [
       {
         "name": "Li Haoyuan",
-        "role": "Development"
+        "role": "Development",
+        "avatar": "https://ice.frostsky.com/2023/09/12/6b9fd4ba493f2978061c35bf1d141582.png"
       },{
         "name":"Liu Yunhao",
-        "role":"Development"
+        "role":"Development",
+        "avatar": "https://ice.frostsky.com/2023/09/12/6fa1283f567cf241aeebe355eca985a7.jpeg"
       },
       {
         "name": "Wan Jiuyang",
-        "role": "Development"
+        "role": "Development",
+        "avatar": "https://ice.frostsky.com/2023/09/12/08c46b2b2e7074491c011dc1f3bcd428.jpeg"
       },{
         "name": "He Yangfan",
         "role": "Development",

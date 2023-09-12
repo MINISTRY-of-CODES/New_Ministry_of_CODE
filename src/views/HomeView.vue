@@ -11,7 +11,7 @@ const memberList = ref<any[]>([]);
 // 获取成员列表
 onMounted(async ()=>{
   loading.value = true;
-  const url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members.json";
+  const url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members.json?123";
   const data = await fetch(url).then(res => res.json());
   memberList.value = data;
   loading.value = false;
