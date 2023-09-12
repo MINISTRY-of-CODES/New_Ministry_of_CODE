@@ -1,22 +1,32 @@
 [
   {
-    "name": "Li Jiake",
-    "role": "President",
-    "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/Li_Jiake.png"
+    "department": "President",
+    "members": [
+      {
+        "name": "Li Jiake",
+        "role": "President",
+        "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/Li_Jiake.png"
+      }
+    ]
   },
   {
-    "name": "Li Haoyuan",
-    "role": "Development"
-  },{
-  "name":"Liu Yunhao",
-    "role":"Development"
-    },
-  {
-    "name": "Wan Jiuyang",
-    "role": "Development"
-  },{
-  "name": "He Yangfan",
-    "role": "Development",
-    "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/He_Yangfan.png"
-    }
+    "department": "Vice President",
+    "members": [
+      {
+        "name": "Li Haoyuan",
+        "role": "Development"
+      },{
+        "name":"Liu Yunhao",
+        "role":"Development"
+      },
+      {
+        "name": "Wan Jiuyang",
+        "role": "Development"
+      },{
+        "name": "He Yangfan",
+        "role": "Development",
+        "avatar": "https://github.com/MINISTRY-of-CODES/New_Ministry_of_CODE/blob/master/static/avatars/He_Yangfan.png"
+      }
+      ]
+  }
 ]
