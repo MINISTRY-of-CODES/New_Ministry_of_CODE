@@ -66,7 +66,7 @@ onMounted(async ()=>{
           <el-row justify="center" gutter="30">
             <el-col span="6"  v-for="item in item.members" :key="item.name" style="margin-bottom: 20px">
               <el-card>
-                <img :src="item.avatar" alt="avatar" style="width: 100%">
+                <img :src="item.avatar" alt="avatar" style="width: 150px; height: 150px; object-fit:cover">
                 <h1>
                   {{item.name}}
                 </h1>
