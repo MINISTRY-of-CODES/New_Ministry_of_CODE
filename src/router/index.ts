@@ -17,7 +17,7 @@ const router = createRouter({
     },{
         path: '/project/:id',
         name: 'project',
-        component: ProjectView
+        component: () => import('../views/ProjectDetailView.vue')
     },{
         path: '/join',
         name: 'join',
