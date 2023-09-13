@@ -16,6 +16,13 @@ onMounted(async ()=>{
   memberList.value = data;
   loading.value = false;
 })
+
+// 检测屏幕大小
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    width.value = window.innerWidth
+  })
+})
 </script>
 
 <template>
@@ -83,14 +90,15 @@ onMounted(async ()=>{
             {{item.department}}
           </h1>
           <el-row justify="center" gutter="30">
-            <el-col :xs="12" :span="6"  v-for="item in item.members" :key="item.name" style="margin-bottom: 20px">
+            <el-col :xs="12" :span="6"  v-for="item1 in item.members" :key="item1.name" style="margin-bottom: 20px">
               <el-card style="text-align: center">
-                <img :src="item.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:cover">
+                <img v-if="width >= 460" :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
+                <img v-else :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
                 <h2 style="margin-bottom: 10px">
-                  {{item.name}}
+                  {{item1.name}}
                 </h2>
                 <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
-                  {{ item.role }}
+                  {{ item1.role }}
                 </p>
               </el-card>
             </el-col>

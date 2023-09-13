@@ -28,7 +28,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
     <el-menu-item index="0">
       <img src="https://www.mocd.cc/assets/MOC-6f7f2da6.png" style="width: 60px" alt="logo"/>
     </el-menu-item>
-    <div class="flex-grow" />
+    <div class="flex-grow"></div>
     <el-menu-item index="intro">介绍</el-menu-item>
     <el-menu-item index="project">项目</el-menu-item>
     <el-menu-item index="join">加入我们</el-menu-item>
