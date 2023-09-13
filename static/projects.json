@@ -1,21 +1,21 @@
 [
   {
-    "project": "Studex",
+    "name": "Studex",
     "avatar": "",
     "intro": "Studex是一个厦门大学马来西亚分校的线上笔记交易平台。"
   },
   {
-    "project": "Bandara",
+    "name": "Bandara",
     "avatar": "",
     "intro": "Bandara是一个航班聚合平台，使厦门大学马来西亚分校的同学可以更方便地寻找同行同学。"
   },
   {
-    "project": "Nucleus",
+    "name": "Nucleus",
     "avatar": "",
     "intro": "Nucleus是一个基于Java Script的框架。"
   },
   {
-    "project": "Ribosome",
+    "name": "Ribosome",
     "avatar": "",
     "intro": "Ribosome是一个厦门大学马来西亚分校的社团管理平台。"
   }

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
+import ProjectCard from "@/components/ProjectCard.vue";
 
 const width = ref(window.innerWidth);
 
 const loading = ref(false);
 
-
+const projectList = ref<any[]>([]);
 const memberList = ref<any[]>([]);
 
 // 获取成员列表
@@ -15,6 +16,16 @@ onMounted(async ()=>{
   const data = await fetch(url).then(res => res.json());
   memberList.value = data;
   loading.value = false;
+})
+
+// 获取项目列表
+onMounted(async ()=>{
+  loading.value = true;
+  const url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects.json";
+  const data = await fetch(url).then(res => res.json());
+  projectList.value = data;
+  loading.value = false;
+  console.log([projectList.value]);
 })
 
 // 检测屏幕大小
@@ -80,6 +91,14 @@ onMounted(() => {
       <h1 style="text-align: center">
         项目
       </h1>
+      <el-skeleton style="width: 240px" :loading="loading" animated>
+        <el-row gutter="40">
+          <el-col :span="8" v-for="item in projectList.slice(0, 3)" :key="item.propject" style="margin-bottom: 40px;">
+            <ProjectCard :project="item" />
+          </el-col>
+        </el-row>
+      </el-skeleton>
+
       
     </div>
     <el-divider />
