@@ -41,8 +41,10 @@ onMounted(() => {
         background-image: linear-gradient(to right, #ff9a00, #ff4e00);
         -webkit-background-clip: text;
         color: transparent;
-">
-        Ministry of CODE
+        ">
+        <span>Ministry</span><br v-if="width <= 490" />
+        <span v-if="width > 490"> of </span><span v-else style="font-size: 35px;"> of </span><br v-if="width <= 490" />
+        <span>CODE</span>
       </p>
       <p style="
         font-size: 30px;
@@ -75,9 +77,10 @@ onMounted(() => {
     </div>
     <el-divider />
     <div id="projects">
-    <h1 style="text-align: center">
-      项目
-    </h1>
+      <h1 style="text-align: center">
+        项目
+      </h1>
+      
     </div>
     <el-divider />
     <div id="members">
