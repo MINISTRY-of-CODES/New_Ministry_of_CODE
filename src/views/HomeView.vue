@@ -44,7 +44,7 @@ const goTo = (project: string) => {
 </script>
 
 <template>
-  <div style="margin: 20px;margin-bottom: 90px">
+  <div style="margin: 20px">
     <div id="logo" style="text-align: center; margin-top: 60px">
       <el-image src="https://www.mocd.cc/assets/MOC-6f7f2da6.png" style="max-width: 400px;max-height: 400px;" alt="logo">
       </el-image>
@@ -150,21 +150,26 @@ const goTo = (project: string) => {
           </h1>
           <el-row justify="center" gutter="30">
             <el-col :xs="12" :span="6"  v-for="item1 in item.members" :key="item1.name" style="margin-bottom: 20px">
-              <el-card style="text-align: center">
-                <img v-if="width >= 460" :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
-                <img v-else :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
-                <h2 style="margin-bottom: 10px">
-                  {{item1.name}}
-                </h2>
-                <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
-                  {{ item1.role }}
-                </p>
+              <el-card style="text-align: center;" :body-style="{ padding: '0px' }">
+                  <img v-if="width >= 460" :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
+                  <img v-else :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
+                  <h2 style="margin-bottom: 10px">
+                    {{item1.name}}
+                  </h2>
+                  <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
+                    {{ item1.role }}
+                  </p>
               </el-card>
             </el-col>
           </el-row>
-          <hr />
         </div>
       </el-skeleton>
     </div>
+    <el-divider />
   </div>
+  <footer style="text-align: center; margin-top: 20px; opacity: 0.7">
+    <p>
+      © 2023 Ministry of CODE, All Rights Reserved.
+    </p>
+  </footer>
 </template>
