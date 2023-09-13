@@ -39,11 +39,11 @@
         <el-card style="margin-top: 20px">
           <template #header>
             <h2>
-              {{ position.find(item => item.id === selectedPosition).name }}
+              {{ position.find((item: any) => item.id === selectedPosition).name }}
             </h2>
           </template>
           <p>
-            {{ position.find(item => item.id === selectedPosition).des }}
+            {{ position.find((item: any) => item.id === selectedPosition).des }}
           </p>
           <div>
               <el-skeleton :loading="false" animated>
@@ -93,7 +93,7 @@ const introBanner = [
   "https://www.mocd.cc/assets/MOC-6f7f2da6.png",
 ]
 
-const position = [
+const position: any = [
   {
     name: "开发组",
     id: "development",

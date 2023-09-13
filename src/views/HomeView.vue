@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
-import ProjectCard from "@/components/ProjectCard.vue";
 
 const width = ref(window.innerWidth);
 
@@ -29,16 +28,6 @@ onMounted(async ()=>{
   projectList.value = projectData;
   loadingProject.value = false;
   loadingMember.value = false;
-})
-
-// 获取项目列表
-onMounted(async ()=>{
-  loading.value = true;
-  const url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects.json";
-  const data = await fetch(url).then(res => res.json());
-  projectList.value = data;
-  loading.value = false;
-  console.log([projectList.value]);
 })
 
 // 检测屏幕大小
