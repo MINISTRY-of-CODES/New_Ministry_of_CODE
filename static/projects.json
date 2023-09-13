@@ -2,12 +2,14 @@
   {
     "project": "Studex",
     "avatar": "https://studex.mocd.cc/static/studex_f.fdcbb023.png",
-    "intro": "Studex是一个厦门大学马来西亚分校的线上笔记交易平台。"
+    "intro": "Studex是一个厦门大学马来西亚分校的线上笔记交易平台。",
+    "url": "https://studex.mocd.cc"
   },
   {
     "project": "Bandara",
     "avatar": "https://ice.frostsky.com/2023/08/29/1541fdea0e681ee30ef527333c1fc9a8.png",
-    "intro": "Bandara是一个航班聚合平台，使厦门大学马来西亚分校的同学可以更方便地寻找同行同学。"
+    "intro": "Bandara是一个航班聚合平台，使厦门大学马来西亚分校的同学可以更方便地寻找同行同学。",
+    "url": "https://flight.mocd.cc"
   },
   {
     "project": "Nucleus",
@@ -17,6 +19,7 @@
   {
     "project": "Ribosome",
     "avatar": "https://api.pamalee.cn/upload/Ribosome.png",
-    "intro": "Ribosome是一个厦门大学马来西亚分校的社团管理平台。"
+    "intro": "Ribosome是一个厦门大学马来西亚分校的社团管理平台。",
+    "url": "https://ribo.mocd.fun"
   }
 ]
