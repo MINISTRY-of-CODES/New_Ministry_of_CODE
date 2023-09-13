@@ -1,22 +1,22 @@
 [
   {
-    "name": "Studex",
-    "avatar": "",
+    "project": "Studex",
+    "avatar": "https://studex.mocd.cc/static/studex_f.fdcbb023.png",
     "intro": "Studex是一个厦门大学马来西亚分校的线上笔记交易平台。"
   },
   {
-    "name": "Bandara",
-    "avatar": "",
+    "project": "Bandara",
+    "avatar": "https://ice.frostsky.com/2023/08/29/1541fdea0e681ee30ef527333c1fc9a8.png",
     "intro": "Bandara是一个航班聚合平台，使厦门大学马来西亚分校的同学可以更方便地寻找同行同学。"
   },
   {
-    "name": "Nucleus",
-    "avatar": "",
+    "project": "Nucleus",
+    "avatar": "https://ice.frostsky.com/2023/09/13/475d07891e77c044bd85f3fb19ccb748.png",
     "intro": "Nucleus是一个基于Java Script的框架。"
   },
   {
-    "name": "Ribosome",
-    "avatar": "",
+    "project": "Ribosome",
+    "avatar": "https://api.pamalee.cn/upload/Ribosome.png",
     "intro": "Ribosome是一个厦门大学马来西亚分校的社团管理平台。"
   }
 ]
