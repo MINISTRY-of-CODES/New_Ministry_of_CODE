@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-card shadow="hover"
-      style="text-align: center; cursor: pointer; height:260px; transition: 0.4s; overflow: hidden;"
+    <el-card shadow="hover" :class="width > 460? 'lg' : 'sm'"
+      style="text-align: center; cursor: pointer"
       @click="goTo(project.project)" @mouseover="showIntro" @mouseleave="showLogo">
       <div>
         <img v-if="width >= 460" :src="project.avatar" alt="avatar" :class="isMouseover? 'Intro' : 'Logo'" class="avatar" style="
@@ -11,15 +11,22 @@
         object-position: bottom;
         ">
         <img v-else :src="project.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
-        <div :class="isMouseover? 'Intro' : 'Logo'" class="name" style="transition: 0.4s">
-          <h2 style="margin-bottom: 5px">
-            {{ props.project.project }}
-          </h2>
+        <div v-if="width >= 460">
+          <div :class="isMouseover? 'Intro' : 'Logo'" class="name" style="transition: 0.4s">
+            <h2 style="margin-bottom: 5px">
+              {{ props.project.project }}
+            </h2>
+          </div>
+          <div :class="isMouseover? 'Intro' : 'Logo'" class="detail" style="transition: 0.4s">
+            <h3>
+              {{ props.project.intro }}
+            </h3>
+          </div>
         </div>
-        <div :class="isMouseover? 'Intro' : 'Logo'" class="detail" style="transition: 0.4s">
-          <h3>
-            {{ props.project.intro }}
-          </h3>
+        <div v-else>
+          <h2 style="margin-bottom: 10px; font-size: 18px">
+              {{ props.project.project }}
+          </h2>
         </div>
       </div>
     </el-card>
@@ -38,13 +45,13 @@ const showLogo = ()=>{
   isMouseover.value = false;
 };
 
+// 父传子数据
 type Project = {
   project: string
   avatar: string
   intro: string
   url: string
 }
-
 const props = defineProps({
   project: {
     type: Object as PropType<Project>,
@@ -89,5 +96,11 @@ onMounted(() => {
 .Logo.avatar {
   max-width: 150px; 
   max-height: 150px; 
+}
+
+.lg {
+  height:260px;
+  transition: 0.4s;
+  overflow: hidden;
 }
 </style>
