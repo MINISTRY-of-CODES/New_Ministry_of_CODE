@@ -85,7 +85,6 @@ const goTo = (project: string) => {
          :style="width > 728 ? 'max-width: 60vw; margin: auto' : 'padding: 0 10px'"
     >
       <h1 style="text-align: center; margin-bottom: 40px;margin-top: 30px">社团介绍</h1>
-
       <el-carousel :interval="5000" arrow="always" style="background-color: #f8f8f8;box-shadow: 0 0 5px #222222; border-radius: 4px;
 " :height="width > 490 ? '400px' : '300px'">
         <el-carousel-item v-for="item in introBanner" :key="item">
@@ -106,20 +105,17 @@ const goTo = (project: string) => {
 
       <el-card style="margin-top: 30px">
         <p>
-          Ministry of CODE 是一个由组成的开源社区，我们致力于为高中生提供一个学习编程的平台，同时也为高中生提供一个展示自己的平台。
+          Ministry of CODE 是一个厦门大学马来西亚分校的社团。校内第一个以编程为主题的社团。
         </p>
         <p>
-          我们的目标是让更多的了解编程，让更多的高中生参与到开源社区中来，让更多的高中生了解开源社区。
-        </p>
-        <p>
-          我们的口号是：让参与到开源社区中来。
+          我们的目标是让更多的同学了解编程，学习编程，参与到开源社区中来。
         </p>
       </el-card>
     </div>
     <el-divider />
     <div id="projects">
       <h1 style="text-align: center">
-        项目
+        已有项目
       </h1>
 
       <el-skeleton style="width: 100%" :loading="loadingProject" animated>
@@ -133,7 +129,7 @@ const goTo = (project: string) => {
                     {{project.project}}
                   </h2>
                   <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
-                    {{ project.description }}
+                    {{ project.intro }}
                   </p>
                 </div>
               </el-card>
@@ -145,8 +141,11 @@ const goTo = (project: string) => {
     <el-divider />
     <div id="members">
       <h1 style="text-align: center">
-        伙伴
+        我们的伙伴
       </h1>
+      <h2 style="text-align: center;">
+        -
+      </h2>
       <el-skeleton style="width: 100%" :loading="loadingMember" animated>
         <div  v-for="item in memberList" :key="item.department" >
           <h1 style="text-align: center">
