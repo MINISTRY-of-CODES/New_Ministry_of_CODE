@@ -4,7 +4,7 @@
       <div class="article">
         <div class="banner" v-if="getBanner(pid)">
           <img
-              :src="getBanner(pid)"
+              :src="getBanner(pid) ? <string>getBanner(pid) : ''"
                style="width: 100%; height: 100%; object-fit: cover;"/>
         </div>
         <div class="article-content">
@@ -43,7 +43,7 @@ const getBanner = (pid: string) => {
 const params = router.currentRoute.value.params;
 
 const aid = params.aid;
-const pid = params.pid;
+const pid: string = <string>params.pid;
 
 onMounted(() => {
 
