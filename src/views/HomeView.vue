@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
-import ProjectCard from "@/components/ProjectCard.vue";
+
 const width = ref(window.innerWidth);
 
 const loadingMember = ref(false);
@@ -36,6 +36,10 @@ onMounted(() => {
     width.value = window.innerWidth
   })
 })
+
+const goTo = (project: string) => {
+  window.open("/project/" + project, "_blank")
+}
 
 </script>
 
@@ -77,7 +81,9 @@ onMounted(() => {
       </div>
 </div>
     <el-divider />
-    <div id="intro">
+    <div id="intro"
+         :style="width > 728 ? 'max-width: 60vw; margin: auto' : 'padding: 0 10px'"
+    >
       <h1 style="text-align: center; margin-bottom: 40px;margin-top: 30px">社团介绍</h1>
 
       <el-carousel :interval="5000" arrow="always" style="background-color: #f8f8f8;box-shadow: 0 0 5px #222222; border-radius: 4px;
@@ -115,10 +121,22 @@ onMounted(() => {
       <h1 style="text-align: center">
         项目
       </h1>
+
       <el-skeleton style="width: 100%" :loading="loadingProject" animated>
         <el-row gutter="30" justify="center">
-            <el-col :xs="12" :md="6" :span="6" v-for="item in projectList" :key="item.project" style="margin-bottom: 20px">
-              <ProjectCard :project="item"/>
+            <el-col :xs="12" :md="6" :span="6" v-for="project in projectList" :key="project.project" style="margin-bottom: 20px">
+              <el-card style="text-align: center;cursor: pointer" @click="goTo(project.project)">
+                <div class="">
+                  <img v-if="width >= 460" :src="project.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
+                  <img v-else :src="project.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
+                  <h2 style="margin-bottom: 10px">
+                    {{project.project}}
+                  </h2>
+                  <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
+                    {{ project.description }}
+                  </p>
+                </div>
+              </el-card>
             </el-col>
         </el-row>
       </el-skeleton>
