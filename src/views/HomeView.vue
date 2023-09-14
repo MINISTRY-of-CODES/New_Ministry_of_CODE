@@ -72,7 +72,9 @@ const goTo = (project: string) => {
         margin-bottom: 15px;
         opacity: 0.7;
 ">
-       Coding Club | Xiamen University Malaysia
+       <span>Coding Club</span>
+       <span v-if="width > 680"> | </span><br v-if="width <= 680"/>
+       <span>Xiamen University Malaysia</span>
       </p>
       <div style="text-align: center">
         <img src="https://ribo.mocd.fun/static/xmum.4acf0db1.png" alt="xiamen" style="width: 100%;max-width: 300px;max-height: 300px;object-fit: cover;">
@@ -117,7 +119,6 @@ const goTo = (project: string) => {
       <h1 style="text-align: center">
         项目
       </h1>
-
       <el-skeleton style="width: 100%" :loading="loadingProject" animated>
         <el-row gutter="30" justify="center">
             <el-col :xs="12" :md="6" :span="6" v-for="project in projectList" :key="project.project" style="margin-bottom: 20px">

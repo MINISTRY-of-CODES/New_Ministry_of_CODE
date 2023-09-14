@@ -8,9 +8,7 @@
             :type="width >= 728 ? 'card' : 'flat'"
             :autoplay="true"
         >
-          <el-carousel-item
-              v-for="item in introBanner"
-              style="background-color: #f8f8f8">
+          <el-carousel-item v-for="item in introBanner" :key="item" style="background-color: #f8f8f8">
             <img
                 :src="item"
                 alt="logo" style="width: 100%;height: 100%;object-fit: scale-down;object-position: bottom;">
