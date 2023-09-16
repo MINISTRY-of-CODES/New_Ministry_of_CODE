@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "@kangc/v-md-editor": "^2.3.17",
     "element-plus": "^2.3.12",
     "highlight.js": "^11.8.0",

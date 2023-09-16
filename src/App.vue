@@ -5,20 +5,6 @@ import {useRouter} from "vue-router";
 
 const router = useRouter()
 
-const handleSelect = (key: string, keyPath: string[]) => {
-  switch (key) {
-    case "intro":
-      router.push("/")
-      break
-    case "project":
-      router.push("/project")
-      break
-    case "join":
-      router.push("/join")
-      break
-  }
-}
-
 const getTab = () => {
   switch (router.currentRoute.value.path) {
     case "/":
@@ -28,6 +14,15 @@ const getTab = () => {
     case "/join":
       return "join"
   }
+}
+
+// 点击按钮滚动至指定位置
+const gotoAnchor = (selector:any) => {
+  if (router.currentRoute.value.path == '/join') {
+    router.push('/');
+  }
+  document.querySelector(selector).scrollIntoView({
+    behavior: "smooth"});
 }
 </script>
 
@@ -43,20 +38,23 @@ const getTab = () => {
       class="el-menu-demo"
       mode="horizontal"
       :ellipsis="false"
-      @select="handleSelect"
   >
-    <el-menu-item index="intro">
-      <img src="https://www.mocd.cc/assets/MOC-6f7f2da6.png" style="width: 60px" alt="logo"/>
-    </el-menu-item>
+    <el-avatar index="intro" @click="gotoAnchor('#logo')"
+      src="https://www.mocd.cc/assets/MOC-6f7f2da6.png"
+      style="width: 60px; height: 60px; background-color: rgb(255, 255, 255);">
+    </el-avatar>
     <div class="flex-grow"></div>
-    <el-menu-item index="intro">
-    首页
+    <el-menu-item index="intro" @click="gotoAnchor('#logo')">
+      首页
     </el-menu-item>
-    <el-menu-item index="project">
-     项目
+    <el-menu-item index="project" @click="gotoAnchor('#projects')">
+      项目
     </el-menu-item>
-    <el-menu-item index="join">
-       加入
+    <el-menu-item index="member" @click="gotoAnchor('#members')">
+      成员
+    </el-menu-item>
+    <el-menu-item index="join" @click="gotoAnchor('#joinus')">
+      加入
     </el-menu-item>
   </el-menu>
   <div>

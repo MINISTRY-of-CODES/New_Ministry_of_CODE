@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@element-plus/icons-vue':
+    specifier: ^2.1.0
+    version: 2.1.0(vue@3.3.4)
   '@kangc/v-md-editor':
     specifier: ^2.3.17
     version: 2.3.17(@vue/compiler-sfc@3.3.4)(vue@3.3.4)

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import ProjectCard from "@/components/ProjectCard.vue";
+import {Link, ArrowUp} from '@element-plus/icons-vue';
+import {useRouter} from "vue-router";
 
+const router = useRouter()
 const width = ref(window.innerWidth);
 
 const loadingMember = ref(false);
@@ -42,10 +45,14 @@ onMounted(() => {
 //   window.open("/project/" + project, "_blank")
 // }
 
+// 点击按钮跳转页面
+const gotoJoinView = () => {
+  router.push("/join");
+}
 </script>
 
 <template>
-  <div style="margin: 20px">
+  <div style="margin: 20px" id="logo">
     <div id="logo" style="text-align: center; margin-top: 60px">
       <el-image src="https://www.mocd.cc/assets/MOC-6f7f2da6.png" style="max-width: 400px;max-height: 400px;" alt="logo">
       </el-image>
@@ -157,6 +164,15 @@ onMounted(() => {
           </el-row>
         </div>
       </el-skeleton>
+      <el-divider />
+      <div id="joinus">
+        <h1 style="text-align: center; margin-bottom: 30px;">
+          加入我们
+        </h1>
+        <el-row justify="center">
+          <el-button size="large" type="primary" :icon="Link" @click="gotoJoinView">Join us!</el-button>
+        </el-row>
+      </div>
     </div>
     <el-divider />
   </div>
@@ -165,4 +181,10 @@ onMounted(() => {
       © 2023 Ministry of CODE, All Rights Reserved.
     </p>
   </footer>
+  <el-backtop v-if="width > 490" bottom="80" right="60" style="width: 50px; height: 50px;">
+      <el-icon><ArrowUp/></el-icon>
+  </el-backtop>
+  <el-backtop v-else bottom="80" right="20" style="width: 40px; height: 40px;">
+      <el-icon><ArrowUp/></el-icon>
+  </el-backtop>
 </template>
