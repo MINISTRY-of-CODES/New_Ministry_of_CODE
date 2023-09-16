@@ -35,19 +35,23 @@ onMounted(async ()=> {
   });
 
   projectDetail.value = project;
-  html.value = marked(projectDetail.value);
+
+  const raw = marked(projectDetail.value);
+  // 让图片自适应
+  const newHtml = raw.replace(/<img/g, '<img style="max-width: 95% !important;"');
+  html.value = newHtml;
+
   projectData.value = data;
   projectArticles.value = data.articles;
 
   loadingProject.value = false;
 })
 
-const html = ref(marked(projectDetail.value));
-
+const html = ref("");
 </script>
 
 <template>
-<div style="margin: 20px">
+<div style="margin: 20px;width: 100%">
   <el-skeleton :loading="loadingProject" :rows="10">
     <el-row gutter="40">
       <el-col :xs="24" :span="12">
@@ -60,9 +64,12 @@ const html = ref(marked(projectDetail.value));
           </h1>
         </div>
         <el-divider />
-        <div v-html="html"></div>
+        <div style="width: 100%" class="markdown">
+          <div v-html="html">
+          </div>
+        </div>
       </el-col>
-      <el-col :xs="24" :span="12">
+      <el-col :xs="22" :span="11">
           <div v-for="article in projectArticles" :key="article.title">
             <ArticleCard :project="{
               title: article.title,
@@ -80,5 +87,11 @@ const html = ref(marked(projectDetail.value));
 </template>
 
 <style scoped>
-
+.markdown {
+  width: 100%;
+  overflow: hidden;
+}
+.markdown img {
+  max-width: 100% !important;
+}
 </style>
