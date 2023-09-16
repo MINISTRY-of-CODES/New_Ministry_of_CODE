@@ -5,19 +5,19 @@
       @click="goTo(project.project)" @mouseover="showIntro" @mouseleave="showLogo">
       <div>
         <img v-if="width >= 460" :src="project.avatar" alt="avatar" :class="isMouseover? 'Intro' : 'Logo'" class="avatar" style="
-        transition: 0.4s;
+        transition: 0.3s;
         width: 100%;
         object-fit:scale-down;
         object-position: bottom;
         ">
         <img v-else :src="project.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
         <div v-if="width >= 460">
-          <div :class="isMouseover? 'Intro' : 'Logo'" class="name" style="transition: 0.4s">
+          <div :class="isMouseover? 'Intro' : 'Logo'" class="name" style="transition: 0.3s">
             <h2 style="margin-bottom: 5px">
               {{ props.project.project }}
             </h2>
           </div>
-          <div :class="isMouseover? 'Intro' : 'Logo'" class="detail" style="transition: 0.4s">
+          <div :class="isMouseover? 'Intro' : 'Logo'" class="detail" style="transition: 0.3s">
             <h3>
               {{ props.project.intro }}
             </h3>
