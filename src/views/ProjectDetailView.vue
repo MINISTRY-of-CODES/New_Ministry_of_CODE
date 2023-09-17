@@ -9,7 +9,7 @@ const router = useRouter();
 const id = ref(<string>router.currentRoute.value.params.id);
 
 const projectData = ref<any>({});
-const projectArticles = ref<any[]>([]);
+const projectArticles = ref<any>([]);
 
 
 const loadingProject = ref(true);
@@ -37,7 +37,7 @@ onMounted(async ()=> {
   projectDetail.value = project;
 
   const raw = marked(projectDetail.value);
-  // 让图片自适应
+  // 让图片自适应 正则
   const newHtml = raw.replace(/<img/g, '<img style="max-width: 95% !important;"');
   html.value = newHtml;
 
@@ -51,7 +51,7 @@ const html = ref("");
 </script>
 
 <template>
-<div style="margin: 20px;width: 100%">
+<div style="margin: 20px; width: 100%">
   <el-skeleton :loading="loadingProject" :rows="10">
     <el-row gutter="40">
       <el-col :xs="24" :span="12">
