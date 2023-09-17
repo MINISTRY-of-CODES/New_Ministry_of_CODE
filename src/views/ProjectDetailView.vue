@@ -22,6 +22,12 @@ const indexURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Minist
 
 const projectDetail = ref<any>("");
 
+// 点击打开新窗口至项目主页
+const goTo = (URL: string) => {
+  window.open(URL, "_blank")
+  console.log(projectData);
+};
+
 onMounted(async ()=> {
   console.log(id.value);
   const data = await fetch(configURL).then(res => res.json()).catch(err => {
@@ -68,6 +74,8 @@ const html = ref("");
           <div v-html="html">
           </div>
         </div>
+        <el-divider />
+        <el-button @click="goTo(projectData.URL)">dianwo</el-button>
       </el-col>
       <el-col :xs="22" :span="11">
           <div v-for="article in projectArticles" :key="article.title">

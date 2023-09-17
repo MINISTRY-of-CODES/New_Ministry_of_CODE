@@ -17,7 +17,7 @@ const getTab = () => {
 
 // 点击按钮滚动至指定位置
 const gotoAnchor = (selector:any) => {
-  if (router.currentRoute.value.path == '/join') {
+  if (router.currentRoute.value.path != '/') {
     router.push('/');
   }
   document.querySelector(selector).scrollIntoView({
