@@ -42,7 +42,7 @@ onMounted(async ()=> {
   html.value = newHtml;
 
   projectData.value = data;
-  projectArticles.value = data.articles;
+  projectArticles.value = data.articles.reverse();
 
   loadingProject.value = false;
 })
