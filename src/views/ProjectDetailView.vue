@@ -4,6 +4,7 @@ import {useRouter} from "vue-router";
 import {onMounted, ref} from "vue";
 import { marked } from 'marked';
 import ArticleCard from "@/components/ArticleCard.vue";
+import {Link} from '@element-plus/icons-vue';
 
 const router = useRouter();
 const id = ref(<string>router.currentRoute.value.params.id);
@@ -25,7 +26,7 @@ const projectDetail = ref<any>("");
 // 点击打开新窗口至项目主页
 const goTo = (URL: string) => {
   window.open(URL, "_blank")
-  console.log(projectData);
+  console.log(URL);
 };
 
 onMounted(async ()=> {
@@ -74,8 +75,12 @@ const html = ref("");
           <div v-html="html">
           </div>
         </div>
-        <el-divider />
-        <el-button @click="goTo(projectData.URL)">dianwo</el-button>
+        <div v-if="projectData.URL">
+          <el-divider />
+          <el-row justify="center">
+            <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
+          </el-row>
+      </div>
       </el-col>
       <el-col :xs="22" :span="11">
           <div v-for="article in projectArticles" :key="article.title">

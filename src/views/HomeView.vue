@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import ProjectCard from "@/components/ProjectCard.vue";
-import {Link, ArrowUp} from '@element-plus/icons-vue';
+import {ArrowUp, Promotion} from '@element-plus/icons-vue';
 import {useRouter} from "vue-router";
 
 const router = useRouter()
@@ -170,7 +170,7 @@ const gotoJoinView = () => {
           加入我们
         </h1>
         <el-row justify="center">
-          <el-button size="large" type="primary" :icon="Link" @click="gotoJoinView">Join us!</el-button>
+          <el-button size="large" type="primary" :icon="Promotion" @click="gotoJoinView">Join us!</el-button>
         </el-row>
       </div>
     </div>
