@@ -29,6 +29,15 @@ const goTo = (URL: string) => {
   console.log(URL);
 };
 
+// 检测屏幕大小
+const width = ref(window.innerWidth);
+
+onMounted(() => {
+  window.addEventListener('resize', () => {
+    width.value = window.innerWidth
+  })
+})
+
 onMounted(async ()=> {
   console.log(id.value);
   const data = await fetch(configURL).then(res => res.json()).catch(err => {
@@ -80,18 +89,22 @@ const html = ref("");
           <el-row justify="center">
             <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
           </el-row>
+          <el-divider v-if="width <= 767"/>
       </div>
       </el-col>
       <el-col :xs="22" :span="11">
-          <div v-for="article in projectArticles" :key="article.title">
-            <ArticleCard :project="{
-              title: article.title,
-              index: article.index,
-              project: id.toLowerCase(),
-              banner: article.banner,
-              time: article.time
-            }" />
-            </div>
+        <h1 style="text-align: left; margin-left: 10px;">
+          更新日志
+        </h1>
+        <div v-for="article in projectArticles" :key="article.title">
+          <ArticleCard :project="{
+            title: article.title,
+            index: article.index,
+            project: id.toLowerCase(),
+            banner: article.banner,
+            time: article.time
+          }" />
+          </div>
       </el-col>
     </el-row>
 
