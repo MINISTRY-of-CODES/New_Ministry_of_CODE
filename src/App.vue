@@ -1,8 +1,10 @@
 <script setup lang="ts">
 // import { RouterLink, RouterView } from 'vue-router'
 import {useRouter} from "vue-router";
+import { ref } from "vue";
 
 const router = useRouter()
+const isMouseover = ref(false);
 
 const getTab = () => {
   switch (router.currentRoute.value.path) {
@@ -23,11 +25,28 @@ const gotoAnchor = (selector:any) => {
   document.querySelector(selector).scrollIntoView({
     behavior: "smooth"});
 }
-</script>
 
+// 鼠标悬浮变为Pointer
+const toPointer = () => {
+  isMouseover.value = true;
+}
+
+const toDefault = () => {
+  isMouseover.value = false;
+}
+</script>
+to
 <style>
 .flex-grow {
   flex-grow: 1;
+}
+
+.showPointer {
+  cursor: pointer;
+}
+
+.showDefault {
+  cursor: default;
 }
 </style>
 
@@ -38,8 +57,9 @@ const gotoAnchor = (selector:any) => {
       mode="horizontal"
       :ellipsis="false"
   >
-    <el-avatar index="intro" @click="gotoAnchor('#logo')"
+    <el-avatar index="intro" @click="gotoAnchor('#logo')" @mouseover="toPointer" @mouseleave="toDefault"
       src="https://www.mocd.cc/assets/MOC-6f7f2da6.png"
+      :class="isMouseover? 'showPointer' : 'showDefault'"
       style="width: 60px; height: 60px; background-color: rgb(255, 255, 255);">
     </el-avatar>
     <div class="flex-grow"></div>
