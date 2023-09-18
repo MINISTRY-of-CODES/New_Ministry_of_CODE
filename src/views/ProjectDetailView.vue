@@ -11,6 +11,7 @@ const id = ref(<string>router.currentRoute.value.params.id);
 
 const projectData = ref<any>({});
 const projectArticles = ref<any>([]);
+const html = ref("");
 
 
 const loadingProject = ref(true);
@@ -68,13 +69,14 @@ onMounted(async ()=> {
       }
       else {
         projectArticles.value[index].banner = bannerCatch;
-        console.log("bannerCatch");
       }
+      const indexInfo = "rank";
+      projectArticles.value[index][indexInfo] = index;
     }
+    
   loadingProject.value = false;
 })
 
-const html = ref("");
 </script>
 
 <template>
@@ -113,7 +115,8 @@ const html = ref("");
             index: article.index,
             project: id.toLowerCase(),
             banner: article.banner,
-            time: article.time
+            time: article.time,
+            rank: article.rank
           }" />
           </div>
       </el-col>

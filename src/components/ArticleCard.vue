@@ -1,19 +1,22 @@
 <template>
   <div style="margin-bottom: 20px">
-    <div
-        class="article-card"
-        @mouseover="isMouseover = true" @mouseleave="isMouseover = false" @click="goTo(projectInfo.index)"
-        :style="isMouseover ? 'box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); cursor: pointer' : 'box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); cursor: pointer'"
+    <div class="article-card" style="transition: 0.3s;"
+         @mouseover="isMouseover = true" @mouseleave="isMouseover = false" @click="goTo(projectInfo.index)"
+         :class="isMouseover ? 'spread' : 'tight'"
     >
-        <div class="banner" v-if="projectInfo.banner">
-          <img :src="projectInfo.banner" alt="banner" style="width: 100%; height: 200px; object-fit: cover; object-position: center;">
+        <div style="overflow: hidden; position: relative;">
+          <img :src="projectInfo.banner" alt="banner" class="banner" :class="projectInfo.rank == 0? 'latest' : 'history'" style="
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+          ">
         </div>
         <div style="padding: 10px">
-          <h2 style="margin-bottom: 10px; margin-left: 10px">
+          <h2 class="title" :class="isMouseover? 'spread' : 'tight'" style="transition: 0.3s;">
             {{ projectInfo.title }}
           </h2>
           <div style="text-align: right;">
-            <p class="time">
+            <p class="time" :class="isMouseover? 'spread' : 'tight'" style="transition: 0.3s;">
               {{ new Date(projectInfo.time).toLocaleDateString() }}
             </p>
           </div>
@@ -36,6 +39,7 @@ type Project = {
   project: string
   banner: string
   time: string
+  rank: number
 }
 
 const props = defineProps({
@@ -50,7 +54,8 @@ const projectInfo = ref<Project>({
   index: "",
   project: "",
   banner: "",
-  time: ""
+  time: "",
+  rank: -1
 });
 
 // 鼠标悬停效果
@@ -67,8 +72,6 @@ const goTo = (index: string) => {
   localStorage.setItem(projectInfo.value.project + "-banner", projectInfo.value.banner);
 }
 
-
-
 </script>
 
 <style>
@@ -81,17 +84,47 @@ const goTo = (index: string) => {
   transition: all 0.4s;
 }
 
-.article-card .banner {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-
 .article-card .time {
   font-size: 14px;
   color: #999;
   margin: 0;
+  margin-bottom: 5px;
+}
+
+.article-card.spread {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  width: 102%; 
+}
+
+.article-card.tight {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 100%;
+}
+
+.time.spread {
   margin-bottom: 10px;
+}
+
+.title.spread {
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: -5px;
+  font-size: 26px;
+}
+
+.title.tight {
+  margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: -10px;
+}
+
+.banner.latest {
+  height: 200px;
+}
+
+.banner.history {
+  height: 60px;
 }
 </style>
