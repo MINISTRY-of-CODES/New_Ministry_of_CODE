@@ -60,6 +60,17 @@ onMounted(async ()=> {
   projectData.value = data;
   projectArticles.value = data.articles.reverse();
 
+  // 检测文章Banner，若无则自动延用
+  var bannerCatch = "https://cdn.wallpapersafari.com/66/6/zZlgub.png"; // 默认图片
+    for (let index = 0; index < projectArticles.value.length; index++) {
+      if (projectArticles.value[index].banner) {
+        bannerCatch = projectArticles.value[index].banner;
+      }
+      else {
+        projectArticles.value[index].banner = bannerCatch;
+        console.log("bannerCatch");
+      }
+    }
   loadingProject.value = false;
 })
 
