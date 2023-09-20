@@ -92,18 +92,24 @@ onMounted(async ()=> {
             {{ projectData.project }}
           </h1>
         </div>
+        <div v-if="projectData.URL && width > 770">
+          <el-divider />
+          <el-row justify="center">
+            <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
+          </el-row>
+        </div>
         <el-divider />
         <div style="width: 100%" class="markdown">
           <div v-html="html">
           </div>
         </div>
-        <div v-if="projectData.URL">
+        <div v-if="projectData.URL && width <= 770">
           <el-divider />
           <el-row justify="center">
             <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
           </el-row>
-          <el-divider v-if="width <= 767"/>
-      </div>
+          <el-divider/>
+        </div>
       </el-col>
       <el-col :xs="22" :span="11">
         <h1 style="text-align: left; margin-left: 10px;">
