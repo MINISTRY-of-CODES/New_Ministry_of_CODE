@@ -17,7 +17,10 @@ const projectList = ref<any[]>([]);
 const introBanner = ref<any[]>([
   "https://ice.frostsky.com/2023/09/13/ee3516850a592eba01290237473dc07c.png",
   "https://www.xmu.edu.my/_upload/tpl/08/9f/2207/template2207/htmlRes/index_res/03.jpg",
-  "https://www.xmu.edu.my/_upload/tpl/08/9f/2207/template2207/htmlRes/index_res/02.jpg"
+  "https://i.mji.rip/2023/09/24/081f644e24ee906fd21dbe10e3149836.jpeg",
+  "https://i.mji.rip/2023/09/24/d110895081c0a2f964522be2030f57e3.jpeg",
+  "https://i.mji.rip/2023/09/24/263a1c9622a93a16dc023f8478948997.jpeg",
+  "https://i.mji.rip/2023/09/24/18ba191bbb419e7b961d3c906b3f9415.jpeg",
 ]);
 
 // 获取成员列表和项目列表
