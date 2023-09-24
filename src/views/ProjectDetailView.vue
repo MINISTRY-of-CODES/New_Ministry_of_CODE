@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {useRouter} from "vue-router";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, computed} from "vue";
 import { marked } from 'marked';
 import ArticleCard from "@/components/ArticleCard.vue";
 import {Link} from '@element-plus/icons-vue';
@@ -37,6 +37,10 @@ onMounted(() => {
   window.addEventListener('resize', () => {
     width.value = window.innerWidth
   })
+})
+
+const isLargescreen = computed(() => {
+  return (width.value > 770);
 })
 
 onMounted(async ()=> {
@@ -80,10 +84,10 @@ onMounted(async ()=> {
 </script>
 
 <template>
-<div style="margin: 20px; width: 100%">
+<div :style="isLargescreen? 'margin: 20px; width: 100%;' : 'margin: 20px; width: 90%;'">
   <el-skeleton :loading="loadingProject" :rows="10">
     <el-row gutter="40">
-      <el-col :xs="24" :span="12">
+      <el-col :xs="23" :span="12">
         <div id="logo" style="text-align: center">
           <img :src="projectData.avatar" style="max-width: 200px;"/>
         </div>
@@ -92,18 +96,17 @@ onMounted(async ()=> {
             {{ projectData.project }}
           </h1>
         </div>
-        <div v-if="projectData.URL && width > 770">
+        <div v-if="projectData.URL && isLargescreen">
           <el-divider />
           <el-row justify="center">
             <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
           </el-row>
         </div>
         <el-divider />
-        <div style="width: 100%" class="markdown">
-          <div v-html="html">
-          </div>
+        <div class="markdown">
+          <div v-html="html"></div>
         </div>
-        <div v-if="projectData.URL && width <= 770">
+        <div v-if="projectData.URL && !isLargescreen">
           <el-divider />
           <el-row justify="center">
             <el-button size="large" type="primary" @click="goTo(projectData.URL)" :icon="Link">访问项目主页</el-button>
@@ -127,7 +130,6 @@ onMounted(async ()=> {
           </div>
       </el-col>
     </el-row>
-
   </el-skeleton>
 </div>
 </template>
