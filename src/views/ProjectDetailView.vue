@@ -26,9 +26,9 @@ const projectDetail = ref<any>("");
 
 // 点击打开新窗口至项目主页
 const goTo = (URL: string) => {
-  window.open(URL, "_blank")
+  window.open(URL, "_blank");
   console.log(URL);
-};
+}
 
 // 检测屏幕大小
 const width = ref(window.innerWidth);

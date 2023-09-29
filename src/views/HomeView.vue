@@ -28,9 +28,9 @@ const introBanner = ref<any[]>([
 onMounted(async ()=>{
   loadingMember.value = true;
   loadingProject.value = true;
-  const member_url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members.json?123";
+  const member_url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members/membersList.json?123";
   const memberData = await fetch(member_url).then(res => res.json());
-  const project_url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects.json?123";
+  const project_url = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects/projectsList.json?123";
   const projectData = await fetch(project_url).then(res => res.json());
   memberList.value = memberData;
   projectList.value = projectData;
