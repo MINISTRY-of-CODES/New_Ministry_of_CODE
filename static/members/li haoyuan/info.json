@@ -1,0 +1,32 @@
+{
+  "profile":{
+    "name": "Li Haoyuan",
+    "role": [
+      "Planning Department Leader", 
+      "Development Department Member"],
+    "avatar": "https://ice.frostsky.com/2023/09/12/6b9fd4ba493f2978061c35bf1d141582.png",
+    "major": "Computer Science and Technology",
+    "grade": "Sophomore year"
+  },
+  "project":[
+    {
+      "name": "Bandara",
+      "contribute": "Front End"
+    },
+    {
+      "name": "New_Ministry_of_CODE",
+      "contribute": "Front End"
+    }
+  ],
+  "website":[
+    {
+      "name": "GitHub",
+      "URL": "https://github.com/GowayLee"
+    },
+    {
+      "name": "BiliBili",
+      "URL": "https://space.bilibili.com/132677971"
+    }
+  ],
+  "joinTime": 1693560590000
+}
