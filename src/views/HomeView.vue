@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import ProjectCard from "@/components/ProjectCard.vue";
+import MemberCard from "@/components/MemberCard.vue";
 import {ArrowUp, Promotion} from '@element-plus/icons-vue';
 import {useRouter} from "vue-router";
 
@@ -90,7 +91,7 @@ const gotoJoinView = () => {
       <div style="text-align: center">
         <img src="https://ribo.mocd.fun/static/xmum.4acf0db1.png" alt="xiamen" style="width: 100%;max-width: 300px;max-height: 300px;object-fit: cover;">
       </div>
-</div>
+    </div>
     <el-divider />
     <div id="intro"
          :style="width > 728 ? 'max-width: 60vw; margin: auto' : 'padding: 0 10px'"
@@ -153,16 +154,7 @@ const gotoJoinView = () => {
           </h1>
           <el-row justify="center" gutter="30">
             <el-col :xs="12" :span="6"  v-for="item1 in item.members" :key="item1.name" style="margin-bottom: 20px">
-              <el-card style="text-align: center;" :body-style="{ padding: '0px' }">
-                  <img v-if="width >= 460" :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
-                  <img v-else :src="item1.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
-                  <h2 style="margin-bottom: 10px">
-                    {{item1.name}}
-                  </h2>
-                  <p style="font-size: 15px;margin-top: 1px; opacity: 0.7; font-weight: bold">
-                    {{ item1.role }}
-                  </p>
-              </el-card>
+              <MemberCard :member="item1"></MemberCard>
             </el-col>
           </el-row>
         </div>
