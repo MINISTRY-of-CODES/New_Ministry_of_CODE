@@ -4,24 +4,28 @@ import {onMounted, ref, computed} from "vue";
 const router = useRouter();
 const id = ref(router.currentRoute.value.params.id);
 const memberInfo = ref<any>({});
+const projectList = ref<any>({});
 
 const loadingMember = ref(true);
 const infoURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members/" +
       id.value + "/info.json";
+const projectURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects/projectsList.json?123";
+
+var item: any;
+var allProject: { name: string; URL: string; avatar: string; contrib: string; }[] = [];
 
 // 检测屏幕大小
 const width = ref(window.innerWidth);
-
 onMounted(() => {
   window.addEventListener('resize', () => {
     width.value = window.innerWidth
   })
 })
-
 const isLargescreen = computed(() => {
   return (width.value > 770);
 })
 
+// 加载成员信息以及项目信息
 onMounted(async () => {
   memberInfo.value = await fetch(infoURL).then(res => res.json()).catch(err => {
     console.log(err);
@@ -29,10 +33,34 @@ onMounted(async () => {
   });
   console.log(memberInfo.value);
 
+  projectList.value = await fetch(projectURL).then(res => res.json()).catch(err => {
+    console.log(err);
+    router.push("/404");
+  });
+  console.log(projectList.value);
 
+  // 匹配成员参与项目的信息
+  for (let index1=0; index1 < memberInfo.value.project.length; index1++) {
+    var temp = { name: "", URL: "", avatar: "", contrib: "" };
+    temp.name = memberInfo.value.project[index1].name;
+    temp.contrib = memberInfo.value.project[index1].contribute;
+    for (let index2=0; index2 < projectList.value.length; index2++) {
+      item = projectList.value[index2];
+      if (temp.name == item.project) {
+        temp.avatar = item.avatar;
+        temp.URL = item.url;
+        console.log(11);
+        break;
+      }
+    }
+    allProject.push(temp);
+  }
+  console.log(allProject);
 
   loadingMember.value = false;
 })
+
+
 
 //点击按钮跳转网址
 const goTo = (URL: string) => {
@@ -42,7 +70,7 @@ const goTo = (URL: string) => {
 </script>
 
 <template>
-  <div>
+  <div :style="isLargescreen? 'margin: 20px; width: 100%;' : 'margin: 20px; width: 90%;'">
     <el-skeleton :loading="loadingMember" :rows="10">
       <el-row gutter="40">
         <el-col :xs="23" :span="12">
@@ -97,8 +125,10 @@ const goTo = (URL: string) => {
           </el-button>
         </div>
         </el-col>
-
         <el-col :xs="22" :span="11">
+          <h1 style="text-align: left; margin-left: 10px;">
+          参与项目
+          </h1>
         
         
         
