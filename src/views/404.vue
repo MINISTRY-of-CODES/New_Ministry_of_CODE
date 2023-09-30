@@ -8,7 +8,7 @@ const router = useRouter();
 
 <template>
 <div class="page-404">
-  <img src="/404.gif" style="max-height: 500px" />
+  <img src="/404.gif" style="max-height: 500px;max-width: 100%" />
   <div>
     <h1>
       404 Not Found - 页面不存在
