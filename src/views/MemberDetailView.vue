@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {useRouter} from "vue-router";
 import {onMounted, ref, computed} from "vue";
+import contributeCard from "@/components/ContributeCard.vue";
 const router = useRouter();
 const id = ref(router.currentRoute.value.params.id);
 const memberInfo = ref<any>({});
@@ -10,8 +11,6 @@ const loadingMember = ref(true);
 const infoURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members/" +
       id.value + "/info.json";
 const projectURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects/projectsList.json?123";
-const defaultAvatar = "https://www.mocd.cc/assets/MOC-6f7f2da6.png";
-const defaultURL = "https://www.mocd.cc";
 
 var item: any;
 var allProject: { name: string; URL: string; avatar: string; contrib: string; }[] = [];
@@ -66,14 +65,6 @@ onMounted(async () => {
 //点击按钮跳转网址
 const goPersonalsite = (URL: string) => {
   window.open(URL, "_blank");
-}
-const goTo = (project: string, URL: string) => {
-  if (URL) {  // 若官网有该项目的详情页，则跳转该详情页
-    window.open("/project/" + project, "_blank");
-  }
-  else{  // 若无，则直接跳转至该项目主页
-    window.open(defaultURL, "_blank");
-  }
 }
 
 </script>
@@ -143,28 +134,7 @@ const goTo = (project: string, URL: string) => {
           参与项目
           </h1>
           <div v-for="item in allProject" :key="item.name" style="margin-bottom: 20px;">
-            <el-card @click="goTo(item.name, item.URL)">
-              <el-row style="align-items: center;">
-                <el-col :span="6" >
-                  <img :src="item.avatar? item.avatar : defaultAvatar"
-                  :style="isLargescreen? 'max-width: 120px;' : 'max-width: 70px;'"/>
-                </el-col>
-                <el-col :span="18">
-                  <el-row style="justify-content: center;">
-                    <p class="projectName" :style="isLargescreen?
-                    'font-size: 24px;' : 'font-size: 18px; margin: 5px;'">
-                      {{ item.name }}
-                    </p>
-                  </el-row>
-                  <el-row style="justify-content: center;">
-                    <p class="projectContrib" :style="isLargescreen?
-                    'font-size: 20px;' : 'font-size: 16px; margin: 5px;'">
-                      {{ item.contrib }}
-                    </p>
-                  </el-row>
-                </el-col>
-              </el-row>
-            </el-card>
+            <contributeCard :contribInfo="item"  />
           </div>
         </el-col>
       </el-row>
@@ -176,19 +146,5 @@ const goTo = (project: string, URL: string) => {
 .websiteBtn {
   margin-bottom: 15px; 
   font-size: 16px;
-}
-
-.projectName {
-  margin-top: 0px;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.projectContrib {
-  margin-top: 10px;
-  margin-bottom: 0px;
-  opacity: 0.7;
-  font-weight: bold;
 }
 </style>

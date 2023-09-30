@@ -2,8 +2,7 @@
   <div style="margin-bottom: 20px">
     <div class="article-card" style="transition: 0.3s;"
          @mouseover="isMouseover = true" @mouseleave="isMouseover = false" @click="goTo(projectInfo.index)"
-         :class="isMouseover ? 'spread' : 'tight'"
-    >
+         :class="isMouseover ? 'spread' : 'tight'">
         <div style="overflow: hidden; position: relative;">
           <img :src="projectInfo.banner" alt="banner" class="banner" :class="projectInfo.rank == 0? 'latest' : 'history'" style="
           width: 100%;

@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <el-card style="text-align: center;" :body-style="{ padding: '0px' }" @click="goTo(props.member.name)">
+  <div @mouseover="isMouseover = true" @mouseleave="isMouseover = false">
+    <el-card :style="isMouseover? 'text-align: center; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); cursor: pointer;' : 'text-align: center; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);'" 
+    :body-style="{ padding: '0px' }" @click="goTo(props.member.name)">
       <img v-if="width >= 460" :src="props.member.avatar" alt="avatar" style="width: 100%; max-width: 150px; max-height: 150px; object-fit:scale-down; object-position: bottom;">
       <img v-else :src="props.member.avatar" alt="avatar" style="width: 100%;max-width: 90px; max-height: 90px; object-fit:scale-down; object-position: bottom;">
       <h2 style="margin-bottom: 10px">
@@ -23,6 +24,9 @@ onMounted(() => {
     width.value = window.innerWidth
   })
 })
+
+// 项目卡片鼠标悬停效果
+const isMouseover = ref(false);
 
 // 父传子数据
 type Member = {
