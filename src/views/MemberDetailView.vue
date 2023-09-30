@@ -10,6 +10,7 @@ const loadingMember = ref(true);
 const infoURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members/" +
       id.value + "/info.json";
 const projectURL = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/projects/projectsList.json?123";
+const defaultAvatar = "https://www.mocd.cc/assets/MOC-6f7f2da6.png";
 
 var item: any;
 var allProject: { name: string; URL: string; avatar: string; contrib: string; }[] = [];
@@ -49,7 +50,6 @@ onMounted(async () => {
       if (temp.name == item.project) {
         temp.avatar = item.avatar;
         temp.URL = item.url;
-        console.log(11);
         break;
       }
     }
@@ -129,8 +129,30 @@ const goTo = (URL: string) => {
           <h1 style="text-align: left; margin-left: 10px;">
           参与项目
           </h1>
-        
-        
+          <div v-for="item in allProject" :key="item.name" style="margin-bottom: 20px;">
+            <el-card>
+              <el-row style="align-items: center;">
+                <el-col :span="6" >
+                  <img :src="item.avatar? item.avatar : defaultAvatar"
+                  :style="isLargescreen? 'max-width: 120px;' : 'max-width: 70px;'"/>
+                </el-col>
+                <el-col :span="18">
+                  <el-row style="justify-content: center;">
+                    <p class="projectName" :style="isLargescreen?
+                    'font-size: 24px;' : 'font-size: 18px;'">
+                      {{ item.name }}
+                    </p>
+                  </el-row>
+                  <el-row style="justify-content: center;">
+                    <p class="projectContrib" :style="isLargescreen?
+                    'font-size: 20px;' : 'font-size: 16px;'">
+                      {{ item.contrib }}
+                    </p>
+                  </el-row>
+                </el-col>
+              </el-row>
+            </el-card>
+          </div>
         
         </el-col>
       </el-row>
@@ -147,4 +169,16 @@ const goTo = (URL: string) => {
   font-size: 16px;
 }
 
+.projectName {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.projectContrib {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  opacity: 0.7;
+  font-weight: bold;
+}
 </style>
