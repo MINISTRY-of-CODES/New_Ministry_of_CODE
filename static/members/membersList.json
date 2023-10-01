@@ -14,12 +14,12 @@
     "members": [
       {
         "name": "Seow Yuxiang",
-        "role": "Management Department Leader",
+        "role": "Leader",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQuDLn.png"
       },
       {
         "name": "Yang Mingjia",
-        "role": "Management Department Member",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/16/a2ae1e915543cf738d33eb05c6d86a6f.jpeg"
       }
     ]
@@ -84,11 +84,11 @@
     "members": [
       {
         "name": "Long Ying",
-        "role": "Design Department Leader",
+        "role": "Leader",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQudzQ.png"
       },{
         "name": "Yang Yunning",
-        "role": "Design Department Member",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/16/8f6b81ad9bf0f16d40b009b04d6faaff.jpeg"
       }
     ]
@@ -98,12 +98,12 @@
     "members": [
       {
         "name": "Li Haoyuan",
-        "role": "Planning Department Leader",
+        "role": "Leader",
         "avatar": "https://ice.frostsky.com/2023/09/12/6b9fd4ba493f2978061c35bf1d141582.png"
       },
       {
         "name": "Jiang Yecen",
-        "role": "Planning Department",
+        "role": "Member",
         "avatar": "https://s1.ax1x.com/2023/08/15/pPQu0Mj.png"
       }
     ]
@@ -113,11 +113,11 @@
     "members": [
       {
         "name": "Qi Yujun",
-        "role": "Publicity Department Leader",
+        "role": "Leader",
         "avatar": "https://s1.ax1x.com/2023/05/14/p9cr1b9.jpg"
       },{
         "name": "Xie Mengxiao",
-        "role": "Publicity Department Member",
+        "role": "Member",
         "avatar": "https://ice.frostsky.com/2023/09/16/fd92ad3a8338c2d083fb73086fee113c.jpeg"
       }
     ]
