@@ -30,9 +30,14 @@ const router = createRouter({
       component: () => import('../views/JoinView.vue')
     },
     {
-        path: '/404',
-        name: '404',
-        component: () => import('../views/404.vue')
+      path: '/404',
+      name: '404',
+      component: () => import('../views/404.vue')
+    },
+    {
+      path: '/setting/memberdetail',
+      name: 'setMemberDetail',
+      component: () => import('../views/SetMemberDetail.vue')
     }
   ]
 })
