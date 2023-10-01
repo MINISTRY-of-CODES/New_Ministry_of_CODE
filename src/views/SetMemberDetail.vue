@@ -87,13 +87,13 @@ const removeContrib = (item: any) => {
 }
 
 // 提交表单函数
+const jsonString = ref("");
 const submit = () => {
   getRoleAvatar(profileData.name);
   profileData.joinTime = profileData.joinTime.toLocaleString().substring(0, 10); // 转换日期格式
   const info = {};
   Object.assign(info, {profile: profileData, project: contribData, website: websiteData});
-  const jsonString = JSON.stringify(info);
-  console.log(jsonString);
+  jsonString.value = JSON.stringify(info, null, "  ")
 }
 const getRoleAvatar = (name: string) => { // 获取该成员的岗位信息以及头像信息
   var department: string;
@@ -107,6 +107,7 @@ const getRoleAvatar = (name: string) => { // 获取该成员的岗位信息以�
     }
   }
 }
+
 
 // 检测屏幕大小
 const width = ref(window.innerWidth);
@@ -128,10 +129,10 @@ const isLargescreen = computed(() => {
         <h1 style="text-align: center;">
           成员信息设置界面
         </h1>
-        <h3 class="title">
-          完善个人信息
-        </h3>
         <div>
+          <h3 class="title">
+            完善个人信息
+          </h3>
           <el-form v-model="profileData" :label-width="isLargescreen? '160px' : '70px'">
             <el-form-item label="姓名">
               <el-select v-model="profileData.name" placeholder="请选择姓名">
@@ -179,39 +180,43 @@ const isLargescreen = computed(() => {
               <el-button type="primary" @click="addWebsite">添加一项</el-button>
             </el-form-item>
           </el-form>
+          <h3 class="title">
+            添加项目参与
+          </h3>
+          <el-form v-model="contribData" :label-width="isLargescreen? '160px' : '70px'">
+            <div v-for="item in contribData" :key="item.name">
+              <el-form-item label="项目">
+                <el-select v-model="item.name" placeholder="请选择项目">
+                  <div v-for="project in projectList" :key="project" >
+                    <el-option :label="project" :value="project"/>
+                  </div>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="参与内容">
+                <el-input v-model="item.contribute" placeholder="请输入参与内容"/>
+                <el-button type="danger" @click.prevent="removeContrib(item)" style="margin-top: 5px;">删除</el-button>
+              </el-form-item>
+            </div>
+            <el-form-item>
+              <el-button type="primary" @click="addContrib">添加一项</el-button>
+            </el-form-item>
+          </el-form>
+          <el-divider/>
+          <div style="text-align: center; margin-top: 30px;">
+            <el-button size="large" type="primary" @click="submit"
+            :style="isLargescreen? 'width: 50%' : 'width: 100%'">
+              提交
+            </el-button>
+          </div>
         </div>
       </el-col>
       <el-col :xs="23" :span="12">
-        <h3 class="title">
-          添加项目参与
-        </h3>
-        <el-form v-model="contribData" :label-width="isLargescreen? '160px' : '70px'">
-          <div v-for="item in contribData" :key="item.name">
-            <el-form-item label="项目">
-              <el-select v-model="item.name" placeholder="请选择项目">
-                <div v-for="project in projectList" :key="project" >
-                  <el-option :label="project" :value="project"/>
-                </div>
-              </el-select>
-            </el-form-item>
-            <el-form-item label="参与内容">
-              <el-input v-model="item.contribute" placeholder="请输入参与内容"/>
-              <el-button type="danger" @click.prevent="removeContrib(item)" style="margin-top: 5px;">删除</el-button>
-            </el-form-item>
-          </div>
-          <el-form-item>
-            <el-button type="primary" @click="addContrib">添加一项</el-button>
-          </el-form-item>
-        </el-form>
-        <el-divider/>
-        <div style="text-align: center; margin-top: 30px;">
-          <el-button size="large" type="primary" @click="submit"
-          :style="isLargescreen? 'width: 50%' : 'width: 100%'">
-            提交
-          </el-button>
-        </div>
+        <p>
+          {{ jsonString }}
+        </p>
       </el-col>
     </el-row>
+    
   </div>
 </template>
 
