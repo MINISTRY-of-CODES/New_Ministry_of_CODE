@@ -60,13 +60,10 @@ onMounted(async () => {
   loadingMember.value = false;
 })
 
-
-
 //点击按钮跳转网址
 const goPersonalsite = (URL: string) => {
   window.open(URL, "_blank");
 }
-
 </script>
 
 <template>
@@ -115,7 +112,7 @@ const goPersonalsite = (URL: string) => {
         text-align: center;
         margin-top: 40px;
         ">
-          {{ "Join in MOC on " + new Date(memberInfo.joinTime).toLocaleDateString() }}
+          {{ "Join in MOC on " + memberInfo.profile.joinTime }}
         </p>
         <el-divider></el-divider>
         <h2 style="text-align: center; margin-left: 10px;">

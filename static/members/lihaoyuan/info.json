@@ -6,7 +6,8 @@
       "Development Department Member"],
     "avatar": "https://ice.frostsky.com/2023/09/12/6b9fd4ba493f2978061c35bf1d141582.png",
     "major": "Computer Science and Technology",
-    "grade": "Sophomore year"
+    "grade": "Sophomore year",
+    "joinTime": "2023/09/01"
   },
   "project":[
     {
@@ -27,6 +28,5 @@
       "name": "BiliBili",
       "URL": "https://space.bilibili.com/132677971"
     }
-  ],
-  "joinTime": 1693560590000
+  ]
 }
