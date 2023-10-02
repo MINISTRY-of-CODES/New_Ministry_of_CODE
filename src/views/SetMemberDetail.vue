@@ -93,7 +93,13 @@ const submit = (selector:any) => {
   profileData.joinTime = profileData.joinTime.toLocaleString().substring(0, 10); // 转换日期格式
   const info = {};
   Object.assign(info, {profile: profileData, project: contribData, website: websiteData});
-  jsonString.value = JSON.stringify(info, null, "  ");
+
+  // 生成格式化的JSON字符串
+  jsonString.value = JSON.stringify(info, null, 2);
+  console.log(jsonString.value);
+
+
+
   document.querySelector(selector).scrollIntoView({
     behavior: "smooth"});
 }
@@ -120,6 +126,25 @@ onMounted(() => {
 const isLargescreen = computed(() => {
   return (width.value > 770);
 })
+
+const onCopyDown = () => {
+  // 复制 id 为 code 的元素的内容
+  const code: any = document.getElementById("code");
+  const range = document.createRange();
+  range.selectNode(code);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeRange(range);
+    alert("复制成功！")
+    // 全选
+    document.getSelection()?.selectAllChildren(code);
+  }
+}
+
+
 </script>
 
 
@@ -212,9 +237,15 @@ const isLargescreen = computed(() => {
         </div>
       </el-col>
       <el-col :xs="23" :span="12">
-        <p id="result" style="text-align: left; width: 80%;">
-          {{ jsonString }}
-        </p>
+        <h3 style="margin-top: 20px">
+          生成的JSON文件
+        </h3>
+        <div style="text-align: center; margin-left: 10px; border: 1px solid #DCDFE6; border-radius: 5px; padding: 10px">
+          <p id="result" style="text-align: left; width: 80%;">
+            <pre id="code" v-html="jsonString" @click="onCopyDown()"></pre>
+          </p>
+        </div>
+
       </el-col>
     </el-row>
     
