@@ -88,12 +88,14 @@ const removeContrib = (item: any) => {
 
 // 提交表单函数
 const jsonString = ref("");
-const submit = () => {
+const submit = (selector:any) => {
   getRoleAvatar(profileData.name);
   profileData.joinTime = profileData.joinTime.toLocaleString().substring(0, 10); // 转换日期格式
   const info = {};
   Object.assign(info, {profile: profileData, project: contribData, website: websiteData});
-  jsonString.value = JSON.stringify(info, null, "  ")
+  jsonString.value = JSON.stringify(info, null, "  ");
+  document.querySelector(selector).scrollIntoView({
+    behavior: "smooth"});
 }
 const getRoleAvatar = (name: string) => { // 获取该成员的岗位信息以及头像信息
   var department: string;
@@ -107,7 +109,6 @@ const getRoleAvatar = (name: string) => { // 获取该成员的岗位信息以�
     }
   }
 }
-
 
 // 检测屏幕大小
 const width = ref(window.innerWidth);
@@ -203,7 +204,7 @@ const isLargescreen = computed(() => {
           </el-form>
           <el-divider/>
           <div style="text-align: center; margin-top: 30px;">
-            <el-button size="large" type="primary" @click="submit"
+            <el-button size="large" type="primary" @click="submit('#result')"
             :style="isLargescreen? 'width: 50%' : 'width: 100%'">
               提交
             </el-button>
@@ -211,7 +212,7 @@ const isLargescreen = computed(() => {
         </div>
       </el-col>
       <el-col :xs="23" :span="12">
-        <p>
+        <p id="result" style="text-align: left; width: 80%;">
           {{ jsonString }}
         </p>
       </el-col>
