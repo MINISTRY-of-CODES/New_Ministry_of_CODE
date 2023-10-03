@@ -1,0 +1,29 @@
+{
+  "profile": {
+    "name": "Jiang Yecen",
+    "role": [
+      "Development Department Member",
+      "Planning Department Member"
+    ],
+    "avatar": "https://s1.ax1x.com/2023/08/15/pPQu0Mj.png",
+    "major": "Computer Science and Technology",
+    "grade": "Sophomore year",
+    "joinTime": "2023/3/23 "
+  },
+  "project": [
+    {
+      "name": "Ribosome",
+      "contribute": "Back End"
+    }
+  ],
+  "website": [
+    {
+      "name": "GitHub",
+      "URL": "https://github.com/JngyEn"
+    },
+    {
+      "name": "BiliBili",
+      "URL": "https://space.bilibili.com/35735668"
+    }
+  ]
+}
