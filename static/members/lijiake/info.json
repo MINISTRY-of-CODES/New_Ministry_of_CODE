@@ -1,0 +1,36 @@
+{
+  "profile": {
+    "name": "Li Jiake",
+    "role": [
+      "President President"
+    ],
+    "avatar": "https://s1.ax1x.com/2023/08/15/pPQuBss.png",
+    "major": "Electrical and Electronics Engineering",
+    "grade": "Sophomore year",
+    "joinTime": "2022/10/1 "
+  },
+  "project": [
+    {
+      "name": "Studex",
+      "contribute": "Project Leader"
+    },
+    {
+      "name": "Bandara",
+      "contribute": "Project Leader"
+    },
+    {
+      "name": "Nucleus",
+      "contribute": "Project Leader"
+    },
+    {
+      "name": "Ribosome",
+      "contribute": "Project Leader"
+    }
+  ],
+  "website": [
+    {
+      "name": "GitHub",
+      "URL": "https://github.com/Pama-Lee"
+    }
+  ]
+}
