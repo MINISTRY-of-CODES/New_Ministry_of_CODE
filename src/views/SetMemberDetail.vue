@@ -91,6 +91,8 @@ watch(name, async(input) => {
     profileData.role = "";
   });
   if (existedData != null) {
+    websiteData.pop();
+    contribData.pop();
     profileData.major = existedData.value.profile.major;
     profileData.grade = existedData.value.profile.grade;
     profileData.joinTime = existedData.value.profile.joinTime;
