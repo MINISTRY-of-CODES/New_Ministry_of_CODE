@@ -64,7 +64,6 @@ const contribData = reactive([
 // 侦听姓名栏并自动搜索获取已存在信息
 const name = ref("");
 watch(name, async(input) => {
-  console.log("here");
   var nameUrl = input.replace(/\s+/g, '').toLowerCase();
   const existedUrl = "https://raw.githubusercontent.com/MINISTRY-of-CODES/New_Ministry_of_CODE/master/static/members/" + nameUrl + "/info.json";
   existedData.value = await fetch(existedUrl).then(res => res.json()).catch(err => {
@@ -90,7 +89,7 @@ watch(name, async(input) => {
     profileData.name = "";
     profileData.role = "";
   });
-  if (existedData != null) {
+  if (existedData.value.profile.name != "") {
     websiteData.pop();
     contribData.pop();
     profileData.major = existedData.value.profile.major;
@@ -233,43 +232,47 @@ const onCopyDown = () => {
             添加个人主页
           </h3>
           <el-form v-model="websiteData" :label-width="isLargescreen ? '160px' : '70px'">
-            <div v-for="item in websiteData" :key="item.name">
-              <el-form-item label="网站">
-                <el-select v-model="item.name" placeholder="请选择网站">
-                  <div v-for="website in websiteList" :key="website">
-                    <el-option :label="website" :value="website" />
-                  </div>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="URL">
-                <el-input v-model="item.URL" placeholder="请输入个人主页URL" />
-                <el-button type="danger" @click.prevent="removeWebsite(item)" style="margin-top: 5px;">删除</el-button>
-              </el-form-item>
-            </div>
             <el-form-item>
               <el-button type="primary" @click="addWebsite">添加一项</el-button>
             </el-form-item>
+            <TransitionGroup name="list" tag="ul" style="margin-left: -40px;">
+              <div v-for="item in websiteData" :key="item.name">
+                <el-form-item label="网站">
+                  <el-select v-model="item.name" placeholder="请选择网站">
+                    <div v-for="website in websiteList" :key="website">
+                      <el-option :label="website" :value="website" />
+                    </div>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="URL">
+                  <el-input v-model="item.URL" placeholder="请输入个人主页URL" />
+                  <el-button type="danger" @click.prevent="removeWebsite(item)" style="margin-top: 5px;">删除</el-button>
+                </el-form-item>
+              </div>
+            </TransitionGroup>
           </el-form>
           <h3 class="title">
             添加项目参与
           </h3>
           <el-form v-model="contribData" :label-width="isLargescreen ? '160px' : '70px'">
-            <div v-for="item in contribData" :key="item.name">
-              <el-form-item label="项目">
-                <el-select v-model="item.name" placeholder="请选择项目">
-                  <div v-for="project in projectList" :key="project">
-                    <el-option :label="project" :value="project" />
-                  </div>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="参与内容">
-                <el-input v-model="item.contribute" placeholder="请输入参与内容" />
-                <el-button type="danger" @click.prevent="removeContrib(item)" style="margin-top: 5px;">删除</el-button>
-              </el-form-item>
-            </div>
             <el-form-item>
               <el-button type="primary" @click="addContrib">添加一项</el-button>
             </el-form-item>
+            <TransitionGroup name="list" tag="ul" style="margin-left: -40px;">
+              <div v-for="item in contribData" :key="item.name">
+                <el-form-item label="项目">
+                  <el-select v-model="item.name" placeholder="请选择项目">
+                    <div v-for="project in projectList" :key="project">
+                      <el-option :label="project" :value="project" />
+                    </div>
+                  </el-select>
+                </el-form-item>
+                <el-form-item label="参与内容">
+                  <el-input v-model="item.contribute" placeholder="请输入参与内容" />
+                  <el-button type="danger" @click.prevent="removeContrib(item)" style="margin-top: 5px;">删除</el-button>
+                </el-form-item>
+              </div>
+            </TransitionGroup>
           </el-form>
           <el-divider />
           <div style="text-align: center; margin-top: 30px;">
@@ -301,5 +304,15 @@ const onCopyDown = () => {
   text-align: center;
   margin-top: 35px;
   opacity: 0.8;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.3s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>
