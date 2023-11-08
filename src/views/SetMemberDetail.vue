@@ -135,7 +135,7 @@ const jsonString = ref("");
 const submit = (selector: any) => {
   profileData.name = name.value;
   getRoleAvatar(profileData.name);
-  profileData.joinTime = profileData.joinTime.toLocaleString().substring(0, 10); // 转换日期格式
+  profileData.joinTime = formatDate(profileData.joinTime.toLocaleString()) // 转换日期格式
   const info = {};
   Object.assign(info, { profile: profileData, project: contribData, website: websiteData });
 
@@ -160,6 +160,17 @@ const getRoleAvatar = (name: string) => { // 获取该成员的岗位信息以�
       }
     }
   }
+}
+
+// 格式化日期
+const formatDate = (date: string) => {
+  const subStrs = date.toLocaleString().split(' ')[0].split('/')
+  for (let index = 0; index < subStrs.length; index++) {
+    if (subStrs[index].length < 2) {
+      subStrs[index] = subStrs[index].padStart(2, '0')
+    }
+  }
+  return subStrs.join('-')
 }
 
 // 检测屏幕大小
