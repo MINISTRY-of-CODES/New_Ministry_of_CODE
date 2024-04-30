@@ -78,52 +78,52 @@ const goPersonalsite = (URL: string) => {
           <h1 style="text-align: center">
             {{ memberInfo.profile.name }}
           </h1>
-        </div>
-        <p v-for="item in memberInfo.profile.role" :key="item" style="
-        font-size: 16px;
-        margin-top: 1px; 
-        opacity: 0.7; 
-        font-weight: bold;
-        text-align: center;
-        ">
-          {{ item }}
-        </p>
-        <el-divider></el-divider>
-        <p style="
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 35px;
-        ">
-          {{ memberInfo.profile.major }}
-        </p>
-        <p style="
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 25px;
-        opacity: 0.7;
-        ">
-          {{ memberInfo.profile.grade }}
-        </p>
-        <p style="
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 40px;
-        ">
-          {{ "Join in MOC on " + memberInfo.profile.joinTime }}
-        </p>
-        <el-divider></el-divider>
-        <h2 style="text-align: center; margin-left: 10px;">
-          个人主页
-        </h2>
-        <div v-for="item in memberInfo.website" :key="item" style="display: flex; justify-content: center;">
-          <el-button size="large" type="primary" @click="goPersonalsite(item.URL)" class="websiteBtn" 
-          :style="isLargescreen? 'width: 50%' : 'width: 100%'">
-            {{ item.name }}
-          </el-button>
-        </div>
+          </div>
+          <p v-for="item in memberInfo.profile.role" :key="item" style="
+          font-size: 16px;
+          margin-top: 1px; 
+          opacity: 0.7; 
+          font-weight: bold;
+          text-align: center;
+          ">
+            {{ item }}
+          </p>
+          <el-divider></el-divider>
+          <p style="
+          font-size: 24px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 35px;
+          ">
+            {{ memberInfo.profile.major }}
+          </p>
+          <p style="
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 25px;
+          opacity: 0.7;
+          ">
+            {{ memberInfo.profile.grade }}
+          </p>
+          <p style="
+          font-size: 20px;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 40px;
+          ">
+            {{ "Join in MOC on " + memberInfo.profile.joinTime }}
+          </p>
+          <el-divider></el-divider>
+          <h2 style="text-align: center; margin-left: 10px;">
+            个人主页
+          </h2>
+          <div v-for="item in memberInfo.website" :key="item" style="display: flex; justify-content: center;">
+            <el-button size="large" type="primary" @click="goPersonalsite(item.URL)" class="websiteBtn" 
+            :style="isLargescreen? 'width: 50%' : 'width: 100%'">
+              {{ item.name }}
+            </el-button>
+          </div>
         </el-col>
         <el-divider v-if="!isLargescreen"></el-divider>
         <el-col :xs="22" :span="11">
